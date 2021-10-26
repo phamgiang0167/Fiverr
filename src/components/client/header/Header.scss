@@ -1,0 +1,88 @@
+.header__container{
+    padding: $pd-2 $pd-4;
+    width: 100vw;
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header__logo{
+            width: 89px;
+            height: 28px;
+        }
+        .header__search{
+            padding: 0 20px;
+            flex: 1;
+            display: flex;
+         
+            height: 100%;
+            form{
+                width: 100%;
+            }
+            input{
+                border: 1px solid $color-gray-1;
+                height: 100%;
+                width: 70%;
+                padding: 0 10px;
+                background-color: #fff;
+                &:hover{
+                    border-color: $color-gray-3;
+                }
+            }
+            button{
+                height: 100%;
+                background-color: $color-green-0;
+                font-weight: bold;
+                color: #fff;
+                padding: 8px 16px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
+        .header__tabs{
+            .tabs.layout__home,
+            .tabs.layout__other{
+                display: inline-block;
+                margin-left: 7px;
+                padding: 7px 20px;
+                font-weight: bold;
+                transition: all .5s;
+                cursor: pointer;
+                font-size: 1rem;
+                
+            }
+            .tabs.layout__home{
+                color: #fff;
+                &:hover{
+                    color: $color-green-0;
+                }
+            }
+            .tabs.layout__other{
+                color: $color-gray-3;
+                &:hover{
+                    color: $color-green-0;
+                }
+            }
+            
+            .tabs.tabs__signup.layout__home,
+            .tabs.tabs__signup.layout__other{
+                border-radius: 4px;
+                font-size: 14px;
+            }
+            .tabs.tabs__signup.layout__home{
+                color: #fff;
+                border: 1px solid #fff;
+                &:hover{
+                    background-color: $color-green-0;
+                }
+            }
+            .tabs.tabs__signup.layout__other{
+                color: $color-green-0;
+                border: 1px solid $color-green-0;
+                &:hover{
+                    color: #fff;
+                    background-color: $color-green-0;
+                }
+            }
+        }
+    }
+}
