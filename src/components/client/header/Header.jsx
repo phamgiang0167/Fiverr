@@ -7,7 +7,6 @@ export default function Header() {
     let allowRender = false
     useEffect(() => {
         setHeader()
-        
     })
 
     let setHeader = () => {
@@ -16,6 +15,7 @@ export default function Header() {
             header.style.position = "fixed"
         }else{
             header.style.position = "static"
+            header.style.border = "1px solid #e9e9e9"
             let tabs = document.getElementsByClassName('tabs')
             for(let ele of tabs){
                 ele.classList.remove("layout__home")
@@ -28,6 +28,7 @@ export default function Header() {
             <div className="header">
                 <div className="header__logo"
                     style={{ backgroundImage: 'url(/images/logo.png)' }}
+                    onClick={() => history.push('/')}
                 >
                 </div>
                 

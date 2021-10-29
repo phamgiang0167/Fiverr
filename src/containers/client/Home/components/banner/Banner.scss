@@ -5,14 +5,36 @@
         align-items: center;
         padding: 0 $pd-4;
         background-position: center top;
-        .banner__left, .banner__right{
-            width: 50%;
+        .banner__left{
+            @include mediaQueryMin('small'){
+                width: 100%;
+            }
+            @include mediaQueryMin('large'){
+                width: 50%;
+            }
+        }
+        .banner__right{
+            @include mediaQueryMin('small'){
+                width: 0%;
+            }
+            @include mediaQueryMin('large'){
+                width: 50%;
+            }
         }
         .banner__left{
             .banner__slogan{
-                font-size: 48px;
+                font-size: 24px;
+                @include mediaQueryMin('small'){
+                    font-size: 32px;
+                    line-height: 40px;
+                }
+                @include mediaQueryMin('large'){
+                    font-size: 48px;
+                    line-height: 56px;
+                }
+                
                 color: #fff;
-                line-height: 56px;
+                
                 font-weight: bold;
             }
             

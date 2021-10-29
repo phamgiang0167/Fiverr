@@ -19,6 +19,7 @@ export default function ListJobs() {
         return list?.map(item => {
             return (
                 <JobItem key={item._id} data={item}/>
+                
             )
         })
     }
@@ -26,9 +27,11 @@ export default function ListJobs() {
     
     return (
         <div className="listJob">
-            <div className="listJob__container">
+            <div className="listJob__container" style={{marginTop: "20px"}}>
                <div class="result">Result for "{name}"</div>
-                {renderListJob()} 
+               <div className="listJobs" style={{marginTop: "20px"}}>
+                    {renderListJob()} 
+               </div>
             </div>
             
         </div>
