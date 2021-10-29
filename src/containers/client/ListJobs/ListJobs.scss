@@ -1,4 +1,5 @@
 .listJob{
+    
     .listJob__container{
         padding: $pd-2 $pd-4;
         .result{
@@ -6,6 +7,20 @@
             font-size: 32px;
             line-height: 150%;
             font-weight: 700;
+        }
+        .listJobs{
+            display: grid;
+            @include mediaQueryMin('small'){
+               grid-template-columns: 1fr 1fr; 
+            }
+            @include mediaQueryMin('medium'){
+                grid-template-columns: 1fr 1fr 1fr; 
+            }
+            @include mediaQueryMin('large'){
+                grid-template-columns: 1fr 1fr 1fr 1fr; 
+            }
+            column-gap: 20px;
+            row-gap: 20px;
         }
     }
     

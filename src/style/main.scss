@@ -4,6 +4,8 @@
 @import "Helpers/extend";
 @import "../components/client/header/Header.scss";
 @import "../containers/client/Home/components/banner/Banner.scss";
-@import "../containers/client/components/jobItem/ListJob.scss";
+@import "../containers/client/components/jobItem/JobItem.scss";
 @import "../containers/client/components/Search/Search.scss";
-@import "../containers/client/ListJobs/ListJobs.scss"
+@import "../containers/client/ListJobs/ListJobs.scss";
+@import "../containers/client/Home/Home.scss";
+@import '../containers/client/JobDetails/JobDetails.scss'
