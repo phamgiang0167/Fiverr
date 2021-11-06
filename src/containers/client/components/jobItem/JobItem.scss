@@ -1,5 +1,6 @@
 .job__item-container{
     border: 1px solid $color-gray-5;
+    width: 90%;
     .job__item{
         .job__logo{
             width: 100%;
@@ -9,6 +10,7 @@
             background-repeat: no-repeat;
             border-top: 1px solid $color-gray-5;
             border-bottom: 1px solid $color-gray-5;
+            cursor: pointer;
         }
         .job__item-details{
             

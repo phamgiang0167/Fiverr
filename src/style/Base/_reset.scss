@@ -32,3 +32,7 @@ figure {
 html {
   scroll-behavior: smooth;
 }
+[class*='col-']{
+  margin: 0;
+  padding: 0;
+}
