@@ -2,9 +2,7 @@ import React from 'react'
 import {useHistory} from 'react-router-dom'
 export default function JobItem(props) {
     const history = useHistory()
-    console.log(history)
     const { data } = props
-    console.log(data)
     return (
         <div className="job__item-container">
             <div className="job__item">

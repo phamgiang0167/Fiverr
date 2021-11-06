@@ -1,0 +1,55 @@
+.listMainJob__container{
+    padding: $pd-4 $pd-2;
+    .listMainJob__item{
+        @include mediaQueryMin('small'){
+            width: 50%;
+        }
+        @include mediaQueryMin('medium'){
+            width: 25%;
+        }
+        @include mediaQueryMin('large'){
+            width: 20%;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: $pd-3 0;
+        &:hover .item__logo .item__border-bottom{
+            width: 30%;
+            background-color: $color-green-0;
+            
+        }
+        .item__logo{
+            width: 100%;
+            height: 60px;
+            position: relative;
+            .logo{
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 30%;
+                height: 80%;
+                margin: 0 auto;
+                padding-bottom: 5px ;
+            }
+            .item__border-bottom{
+                position: absolute;
+                bottom: 0;
+                width: 20%;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                height: 2px;
+                background-color: $color-gray-3;
+                transition: width .5s;
+            }
+        }
+        .item__name{
+            padding: $pd-1 0;
+            color: #222325;
+            font-size: 1rem;
+        }
+    }
+}
