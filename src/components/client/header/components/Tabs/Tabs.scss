@@ -1,0 +1,18 @@
+.header__tabs{
+    .tabs__label,
+    .sub__tabs{
+        color: $color-gray-3;
+        font-weight: 500;
+        line-height: 24px;
+        font-size: 16px;
+    }
+    .sub__tabs{
+        padding: 10px 0 10px 10px;
+        .tabs{
+            padding: 8px 0;
+        }
+    }
+    .tabs__label{
+        padding: 8px 0;
+    }
+}

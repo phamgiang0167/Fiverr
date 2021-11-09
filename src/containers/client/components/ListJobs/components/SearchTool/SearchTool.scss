@@ -1,0 +1,144 @@
+.searchtool__container{
+    .searchtool__left{
+        .searchtool__filter-price{
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+            color: $color-black-1;
+            min-width: 50px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid $color-gray-4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+            span{
+                margin-right: 5px;
+            }
+            i{
+                color: $color-gray-3
+            }
+            .price__input{
+                position: absolute;
+                top: 110%;
+                left: 0;
+                background-color: #fff;
+                padding: 10px;
+                border: 1px solid $color-gray-4;
+                z-index: 2;
+                border-radius: 4px;
+                display: none;
+                transition: display .5s;
+                table{
+                    tr{
+                        td{
+                            text-align: left;
+                        }
+                        &:nth-child(1){
+                            font-size: 16px;
+                            line-height: 24px;
+                            font-weight: 600;
+                            color: $color-gray-3;
+                            padding: 5px;
+                        }
+                        &:nth-child(2){
+                            input{
+                                border: 1px solid $color-gray-4;
+                                border-radius: 4px;
+                                margin: 0 5px;
+                                padding: 5px;
+                                min-width: 120px;
+                                min-height: 36px;
+                            }
+                        }
+                    }
+                }
+                div{
+                    .clear{
+                        color: $color-gray-3;
+                        font-weight: 600;
+                        font-size: 14px;
+                        transition: all .5s;
+                        &:hover{
+                            color: $color-green-0;
+                        }
+                    }
+                    .apply{
+                        padding: 4px 12px;
+                        color: #fff;
+                        background: #1dbf73;
+                        border-radius: 4px;
+                        transition: all .5s;
+                    }
+                }
+            }
+        }
+    }
+    .searchtool__right{
+        .searchtool__right-item{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            span{
+                font-weight: 600;
+                color: $color-black-1;
+                padding: 6px 12px;
+            }
+            .switch {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 32px;
+                height: 18px;
+                margin: 0;
+                input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    &:checked + .slider{
+                        background-color: $color-green-0;
+                    }
+                    &:focus + .slider{
+                        box-shadow: 0 0 1px $color-green-0;
+                    }
+                    &:checked + .slider::before{
+                        -webkit-transform: translateX(14px);
+                        -ms-transform: translateX(14px);
+                        transform: translateX(14px);
+                    }
+                }
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    &.round{
+                        border-radius: 18px;
+                        &::before{
+                            border-radius: 50%;
+                        }
+                    }
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        height: 16px;
+                        width: 16px;
+                        left: 1px;
+                        bottom: 1px;
+                        background-color: white;
+                        -webkit-transition: .4s;
+                        transition: .4s;
+                    }
+                }
+                
+            }
+        }
+    }
+}

@@ -3,8 +3,10 @@ import {lazy} from 'react'
 
 //client routes
 import Home from '../containers/client/Home/Home'
-import ListJobs from '../containers/client/ListJobs/ListJobs'
+import JobByKey from 'containers/client/JobByKey/JobByKey'
 import JobDetails from 'containers/client/JobDetails/JobDetails'
+import TypeJobs from 'containers/client/TypeJobs/TypeJobs'
+import SubType from 'containers/client/SubType/SubType'
 //admin routes
 import Admin from '../containers/admin/Admin'
 export const clientRoutes = [
@@ -15,14 +17,24 @@ export const clientRoutes = [
     },
     {
         path: '/listjob/by-name',
-        component: ListJobs,
+        component: JobByKey,
         exact: true
     },
     {
         path: '/job-details/:id',
         component: JobDetails,
         exact: true
-    }
+    },
+    {
+        path: '/type/:id',
+        component: TypeJobs,
+        exact: true
+    },
+    {
+        path: '/subtype/:id',
+        component: SubType,
+        exact: true
+    },
 
 ];
 
