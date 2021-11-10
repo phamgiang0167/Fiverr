@@ -37,9 +37,7 @@ function ListMainJobs() {
             <div 
                 className="
                     listMainJob__container
-                    d-flex flex-wrap
-                    justify-content-between
-                    align-items-center
+                    
                 "
             >
                 {renderListMainJob()}

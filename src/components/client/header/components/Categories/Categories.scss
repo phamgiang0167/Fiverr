@@ -1,0 +1,33 @@
+.header__categories{
+    .catelogy__label,
+    .sub__categories,
+    .sub__category{
+        color: $color-gray-3;
+        font-weight: 500;
+        line-height: 24px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .sub__categories,
+    .sub__category{
+        padding: 0px 0 10px 10px;
+        .category{
+            padding: 8px 0;
+            .category__title{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .sub__category{
+                margin: 8px 0;
+            }
+        }
+        .sub__item{
+            padding: 8px 0;
+        }
+    }
+    .catelogy__label{
+        padding: 8px 0;
+        
+    }
+}

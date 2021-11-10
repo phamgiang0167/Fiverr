@@ -1,15 +1,17 @@
 .listMainJob__container{
     padding: $pd-4 $pd-2;
+    display: grid;
+    @include mediaQueryMin('small'){
+        grid-template-columns: 1fr 1fr;
+    }
+    @include mediaQueryMin('medium'){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @include mediaQueryMin('large'){
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
     .listMainJob__item{
-        @include mediaQueryMin('small'){
-            width: 50%;
-        }
-        @include mediaQueryMin('medium'){
-            width: 25%;
-        }
-        @include mediaQueryMin('large'){
-            width: 20%;
-        }
+        
         display: flex;
         flex-direction: column;
         align-items: center;

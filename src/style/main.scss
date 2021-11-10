@@ -6,7 +6,10 @@
 @import "../containers/client/Home/components/banner/Banner.scss";
 @import "../containers/client/components/jobItem/JobItem.scss";
 @import "../containers/client/components/Search/Search.scss";
-@import "../containers/client/ListJobs/ListJobs.scss";
+@import "../containers/client/components/ListJobs/ListJobs.scss";
 @import "../containers/client/Home/Home.scss";
 @import '../containers/client/JobDetails/JobDetails.scss';
-@import "../containers/client/Home/components/ListMainJobs/ListMainJobs.scss"
+@import "../containers/client/Home/components/ListMainJobs/ListMainJobs.scss";
+@import "../containers/client/components/ListJobs/components/SearchTool/SearchTool.scss";
+@import "../components/client/header/components/Categories/Categories.scss";
+@import "../components/client/header/components/Tabs/Tabs.scss";

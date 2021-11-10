@@ -1,4 +1,5 @@
 .banner__search{
+    width: 100%;
     @include mediaQueryMin('large'){
         display: flex;
     }
