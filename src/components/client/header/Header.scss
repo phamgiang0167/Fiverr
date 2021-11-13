@@ -44,6 +44,47 @@
             }
         }
     }
+    .header__personal{
+        position: relative;
+        .personal__logo{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            border: 1px solid $color-gray-4;
+        }
+        #logo__checkbox{
+            display: none;
+            &:checked + .personal__options{
+                display: block;
+            }
+        }
+        .personal__options{
+            position: absolute;
+            display: none;
+            top: 100%;
+            background-color: #fff;
+            padding: 10px;
+            color: $color-gray-3;
+            min-width: 100px;
+            right: 0%;
+            border-radius: 4px;
+            border: 1px solid $color-gray-4;
+            .options__item{
+                cursor: pointer;
+                & + .options__item{
+                    margin-top: 10px;
+                }
+                &:hover{
+                    color: $color-green-0;
+                }
+                
+            }
+        }
+    }
     .header__signin{
         display: none;
         font-weight: 600;

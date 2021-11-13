@@ -1,0 +1,5 @@
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS"
+export const SIGNUP__REQUEST = "SIGNUP__REQUEST"
+export const SIGNUP__FAIL = "SIGNUP__FAIL"
+export const SIGNIN__REQUEST = "SIGNIN__REQUEST"
+export const SIGNIN__SUCCESS = "SIGNIN__SUCCESS"
