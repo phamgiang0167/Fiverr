@@ -1,4 +1,5 @@
 import jobManagement from 'apis/QuanLiCongViec'
+import subJobManagement from 'apis/QuanLiCongViecPhu'
 import {
     FETCH_ALL_JOBS,
     FILTER
@@ -16,11 +17,18 @@ const filter = (filterBy) => ({
 })
 
 
-export const actFetchAllJobs = (name) => {
+export const actFetchAllJobs = (name, id) => {
     return async dispatch => {
+        
         try {
-            const {data} = await jobManagement.fechJobByName(name)
-            dispatch(fetchAllJobs(data))
+            if(name){
+                const {data} = await jobManagement.fechJobByName(name)
+                dispatch(fetchAllJobs(data))
+            }else{
+                const {data} = await jobManagement.fetchJobBySubtype(id)
+               
+                dispatch(fetchAllJobs(data))
+            }
         }catch(err) {
             console.error(err)
         }

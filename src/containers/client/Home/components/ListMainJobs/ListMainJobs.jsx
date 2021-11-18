@@ -12,7 +12,7 @@ function ListMainJobs() {
             })
             .catch(err => console.log(err))
     }, [])
-    console.log(listMainJob)
+    
     const renderListMainJob = () => {
         return listMainJob?.map((item, index) => {
             return (

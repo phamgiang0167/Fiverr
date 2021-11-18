@@ -1,17 +1,8 @@
 .listJob{
     
     .listJob__container{
-        padding: $pd-2 $pd-4;
-        .result{
-            color: #000;
-            line-height: 150%;
-            font-weight: 700;
-            font-size: 24px;
-            margin-top: 20px;
-            @include mediaQueryMin("large"){
-                font-size: 32px;
-            }
-        }
+        padding: 0 $pd-4;
+        
         .listJob__length{
             margin-top: 20px;
             color: $color-gray-3;
