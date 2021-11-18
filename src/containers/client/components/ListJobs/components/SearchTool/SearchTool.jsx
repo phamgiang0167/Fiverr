@@ -38,8 +38,11 @@ function SearchTool() {
         <div className="searchtool__container d-flex flex-wrap justify-content-sm-between">
             <div className="searchtool__left">
                 <button className="searchtool__filter-price" >
-                    <span onClick={() => handleShowPriceInput()}>Budget</span>
-                    <i class="fas fa-chevron-down"></i>
+                    <span onClick={() => handleShowPriceInput()}>
+                        <span>Budget</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    
                     <div className="price__input" style={{display: "none"}}>
                         <table>
                             <tr>

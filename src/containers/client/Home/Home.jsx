@@ -13,22 +13,23 @@ const breakPoints = [
     { width: 1200, itemsToShow: 5 },
 ];
 export default function Home() {
-    const [list, setList] = useState([])
+    const [listJob, setListJob] = useState([])
     const [listMainJob, setListMainJob] = useState([])
     useEffect(() => {
         jobManagement.fechJobs()
             .then((list) => {
-                setList(list.data)
+                setListJob(list.data)
             })
             .catch(err => console.log(err))
         
     }, [])
 
     const renderListJob = () => {
-        return list?.map(item => {
+        return listJob?.map(item => {
             return (
-                <JobItem key={item._id} data={item} />
-
+                <div>
+                    <JobItem key={item._id} data={item} />
+                </div>
             )
         })
     }

@@ -2,4 +2,4 @@ export const BASE_URL = 'https://fiverr.cybersoft.edu.vn/api';
 export const DOMAIN = 'https://fiverr.cybersoft.edu.vn'
 export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTc2NzIxZjJiMTAzMjAwMWMzZjRiZWIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYzNTE2MTc0M30.8tRfz0C2bJKr4b-YD76xmRH_hQTFoZ__mw1ugEuXCzM'
 export const TOKEN_BY_CLASS  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udCBFbmQgNjgiLCJIZXRIYW5TdHJpbmciOiIwNS8wMy8yMDIyIiwiSGV0SGFuVGltZSI6IjE2NDY0Mzg0MDAwMDAiLCJuYmYiOjE2MTc5ODc2MDAsImV4cCI6MTY0NjU4NjAwMH0.rmNHCCoHWfPP3VnrGmrmn3_CDUS9NnNwcEeBD_71ylk'
-export const USER = "USER"
+export const TOKEN_USER = "TOKEN_USER"

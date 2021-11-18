@@ -7,7 +7,7 @@ export default function Banner() {
     const history = useHistory()
     const [listPopular, setListPopular] = useState([])
     useEffect(() => {
-        jobManagement.fechJobs()
+        subJobManagement.fechListSubJob()
         .then((list) => {
             setListPopular(list.data)
         })
@@ -20,7 +20,7 @@ export default function Banner() {
             return (
                 <button className="popular__item" 
                     key={item._id} 
-                    onClick={() => history.push(`/listjob/by-name?name=${item.name}`)}
+                    onClick={() => history.push(`/subtype/${item._id}`)}
                 >
                     {item.name}
                 </button>

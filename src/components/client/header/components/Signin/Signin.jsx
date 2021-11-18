@@ -5,7 +5,7 @@ import { useFormik } from "formik"
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import Loading from 'components/client/Loading/Loading';
-import { actSignIn } from "../../modules/actions"
+import {actSignIn} from 'store/actions/user'
 function Signin(props) {
     const { display, setDisplaySignin } = props
     const { loading, userLoggedIn } = useSelector(state => state.validateUser)

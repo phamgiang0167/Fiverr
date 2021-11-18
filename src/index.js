@@ -5,6 +5,7 @@ import 'jquery/dist/jquery';
 import 'popper.js/dist/umd/popper';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'flatpickr/dist/themes/material_green.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from 'store';

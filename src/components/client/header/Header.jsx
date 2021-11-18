@@ -8,6 +8,7 @@ import mainJobManagement from "apis/QuanLiCongViecChinh"
 import Signup from './components/Signup/Signup'
 import { USER } from 'settings/varConfig'
 import Signin from './components/Signin/Signin'
+import { TOKEN_USER } from 'settings/apiConfig'
 export default function Header() {
     const history = useHistory()
     const [typeJobs, setTypeJobs] = useState([])
@@ -124,11 +125,30 @@ export default function Header() {
                     </label>
                     <input type="checkbox" id="logo__checkbox" />
                     <div className="personal__options">
-                        <div className="options__item" onClick={() => history.push(`/profile/${userInfo._id}`)}>
+                        <div 
+                            className="options__item" 
+                            onClick={() => history.push(`/profile`)}
+                        >
                             Profile
                         </div>
-                        <div className="options__item">
-                            Profile
+                        <div className="options__item" 
+                            onClick={() => {
+                                history.push({
+                                    pathname: '/mygig',
+                                    state: { user: userInfo}
+                                })
+                            }}
+                        >
+                            My gig
+                        </div>
+                        <div className="options__item" 
+                            onClick={() => {
+                                localStorage.removeItem(USER)
+                                localStorage.removeItem(TOKEN_USER)
+                                window.location.reload()
+                            }}
+                        >
+                            Sign out
                         </div>
                     </div>
                 </div>
@@ -151,7 +171,7 @@ export default function Header() {
     return (
         <div class="header__container d-flex justify-content-between align-items-center">
             <Signup display={displaySignup} setDisplaySignup={setDisplaySignup} />
-            <Signin display={displaySignin} setDisplaySignup={setDisplaySignin} />
+            <Signin display={displaySignin} setDisplaySignin={setDisplaySignin} />
             <div className="overplay" onClick={() => hideSidebar()}></div>
             <button onClick={() => showSidebar()}>
                 <i class="fas fa-bars"></i>
@@ -160,11 +180,7 @@ export default function Header() {
                 className="header__logo" 
                 style={{ backgroundImage: "url(/images/logo.png)" }}
                 onClick={() => {
-                    if(history.location.pathname == "/"){
-                        history.push('/')
-                    }else{
-                        history.goBack()
-                    }
+                    history.push('/')
                 }}
             ></div>
             <div className="header__sidebar">

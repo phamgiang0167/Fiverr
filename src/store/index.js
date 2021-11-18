@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import listJobsReducer from "containers/client/components/ListJobs/modules/reducer"
-import validateUser from "components/client/header/modules/reducer"
+import validateUser from "./reducers/user"
 const rootReducer = combineReducers({
   listJobsReducer,
   validateUser

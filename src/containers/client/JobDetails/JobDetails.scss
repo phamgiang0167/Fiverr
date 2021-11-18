@@ -1,0 +1,101 @@
+.details{
+    padding: 60px $pd-4;
+    .detail__linked{
+        span{
+            margin: 0 10px;
+        }
+    }
+    .details__title{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .details__user{
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        .user__logo{
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid $color-gray-4;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-right: 5px;
+        }
+        .user__name{
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .user__rating{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            div{
+                border: 2px solid $color-gray-4;
+                border-top: none;
+                border-bottom: none;
+                line-height: 1rem;
+                padding: 0 10px;
+                span{
+                    color: #ffbe5b;
+                }
+            }
+            
+        }
+    }
+    .details__image{
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        .image{ 
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            margin: auto auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all .5s;
+            &:hover{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .detail__booking{
+        width: 100%;
+        .booking__box{
+            .booking__title{
+                text-align: center;
+                border-bottom: 2px solid $color-green-0;
+                padding: 10px 0;
+                font-weight: bold;
+                color: $color-green-0;
+            }
+            width: 80%;
+            float: right;
+            border: 1px solid $color-gray-4;
+            .btn.booking{
+                padding: 10px 0;
+                background-color: $color-green-0;
+                color: #fff;
+                font-weight: bold;
+                width: 100%;
+                &:hover{
+                    background-color: $color-green-2;
+                }
+                &.disabled{
+                    cursor: not-allowed;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

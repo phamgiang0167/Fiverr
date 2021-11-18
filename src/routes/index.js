@@ -8,6 +8,7 @@ import JobDetails from 'containers/client/JobDetails/JobDetails'
 import TypeJobs from 'containers/client/TypeJobs/TypeJobs'
 import SubType from 'containers/client/SubType/SubType'
 import Profile from 'containers/client/Profile/Profile'
+import Gig from 'containers/client/Gig/Gig'
 //admin routes
 import Admin from '../containers/admin/Admin'
 export const clientRoutes = [
@@ -37,8 +38,13 @@ export const clientRoutes = [
         exact: true
     },
     {
-        path: '/profile/:id',
+        path: '/profile',
         component: Profile,
+        exact: true
+    },
+    {
+        path: '/mygig',
+        component: Gig,
         exact: true
     }
 ];

@@ -4,7 +4,7 @@ import { DatePicker, Space } from 'antd';
 import { useState } from 'react';
 import { useFormik } from "formik"
 import { useDispatch } from 'react-redux';
-import { actSignUp } from "../../modules/actions"
+import {actSignUp} from 'store/actions/user'
 import { useSelector } from 'react-redux';
 import Loading from 'components/client/Loading/Loading';
 import { USER } from 'settings/varConfig';
@@ -84,7 +84,7 @@ function Signup(props) {
                     <button> Sign In</button>
                 </div>
             </div>
-
+            
             <Loading display={loading.status}/>
         </div>
     )

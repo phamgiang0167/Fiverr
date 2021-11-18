@@ -7,6 +7,7 @@
 @import "../containers/client/components/jobItem/JobItem.scss";
 @import "../containers/client/components/Search/Search.scss";
 @import "../containers/client/components/ListJobs/ListJobs.scss";
+@import "../containers/client/JobByKey/JobByKey.scss";
 @import "../containers/client/Home/Home.scss";
 @import '../containers/client/JobDetails/JobDetails.scss';
 @import "../containers/client/Home/components/ListMainJobs/ListMainJobs.scss";
@@ -18,4 +19,7 @@
 @import "../components/client/header/components/Signin/Signin.scss";
 @import "../containers/client/Profile/Profile.scss";
 @import "../containers/client/Profile/components/ProfileInfo/ProfileInfo.scss";
-@import "../containers/client/Home/components/HomeTrailer/HomeTrailer.scss"
+@import "../containers/client/Profile/components/ProfileBasic/ProfileBasic.scss";
+@import "../containers/client/Profile/components/ProfileDescription/ProfileDescription.scss";
+@import "../containers/client/Home/components/HomeTrailer/HomeTrailer.scss";
+@import "../containers/client/Gig/Gig.scss"

@@ -1,4 +1,4 @@
-import callApi from 'utils/callApi';
+import {callApi, callApiUser} from 'utils/callApi';
 
 const jobManagement = {
     fechJobByName(name) {
@@ -6,6 +6,15 @@ const jobManagement = {
     },
     fechJobs(){
         return callApi('api/jobs')
+    },
+    fetchJobBySubtype(id, skip, limit){
+        return callApi('api/jobs/by-sub-type?subType=' + id)
+    },
+    fetchJob(id){
+        return callApi(`api/jobs/${id}`)
+    },
+    bookJob(id){
+        return callApiUser(`api/jobs/booking/${id}`, "PATCH")
     }
     
 };

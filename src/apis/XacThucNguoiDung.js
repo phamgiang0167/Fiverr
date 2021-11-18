@@ -1,4 +1,4 @@
-import callApi from 'utils/callApi';
+import {callApi} from 'utils/callApi';
 
 const validateUser= {
     signup(values) {
