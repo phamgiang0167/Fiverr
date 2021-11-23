@@ -4,8 +4,11 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
+import { USER } from 'settings/varConfig'
 import {actBookJob} from "store/actions/user"
+import Comments from './components/Comments/Comments'
 export default function JobDetails() {
+    
     const { id } = useParams()
     const [job, setJob] = useState({})
     const [user, setUser] = useState({})
@@ -21,7 +24,7 @@ export default function JobDetails() {
             })
             .catch(err => console.log(err))
     }, [])
-    // console.log(job)
+    
     if (job === {}) return (<></>)
     return (
         <div className="details" >
@@ -40,7 +43,7 @@ export default function JobDetails() {
                         {job.name}
                     </div>
                     <div className="details__user">
-                        <div className="user__logo" style={{backgroundImage: `url(${user.avatar})`}}>
+                        <div className="user__logo" style={{backgroundImage: `url(${user.avatar ? user.avatar : '/images/item_default.png'})`}}>
 
                         </div>
                         <div className="user__name">
@@ -54,11 +57,12 @@ export default function JobDetails() {
                         </div>
                     </div>
                     <div className="details__image" >
-                        <div className="image" style={{backgroundImage: `url(${job.image})`}}>
-
+                        <div className="image" 
+                            style={{backgroundImage: `url(${job.image ? job.image : '/images/item_default.png'})`}}
+                        >
                         </div>
                     </div>
-                    
+                    <Comments id={id} />
                 </div>
                 <div className="col-md-5">
                     <div className="detail__booking">
@@ -70,7 +74,12 @@ export default function JobDetails() {
                             </div>
                             <div className="pb-4 px-4 text-center">
                                 <button 
-                                    className={`btn booking ${job.usersBooking == (undefined || null)? "active" : "disabled"}`}
+                                    className={
+                                        `
+                                            btn booking 
+                                            ${job.usersBooking !== (undefined || null) && JSON.parse(localStorage.getItem(USER))?._id !== user._id ? "active" : "disabled"}
+                                        `
+                                    }
                                     onClick={() => dispatch(actBookJob(job._id))}
                                 >
                                     Booking({job.price}$)
@@ -81,7 +90,7 @@ export default function JobDetails() {
                     </div>
                 </div>
             </div>
-
+            
         </div>
     )
 }

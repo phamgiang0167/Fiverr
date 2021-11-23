@@ -15,6 +15,20 @@ const jobManagement = {
     },
     bookJob(id){
         return callApiUser(`api/jobs/booking/${id}`, "PATCH")
+    },
+    createJob(values){
+        return callApiUser(`api/jobs`, "POST", values)
+    },
+    editJob(id, values){
+        // console.log(id, values)
+        return callApiUser(`api/jobs/${id}`, "PUT", values)
+    },
+    deleteJob(id){
+        // console.log(id)
+        return callApiUser(`api/jobs/${id}`, "DELETE")
+    },
+    completeJob(id){
+        return callApiUser(`api/jobs/done/${id}`, "PATCH")
     }
     
 };

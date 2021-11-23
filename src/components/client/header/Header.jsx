@@ -170,8 +170,8 @@ export default function Header() {
     }
     return (
         <div class="header__container d-flex justify-content-between align-items-center">
-            <Signup display={displaySignup} setDisplaySignup={setDisplaySignup} />
-            <Signin display={displaySignin} setDisplaySignin={setDisplaySignin} />
+            <Signup display={displaySignup} setDisplaySignin={setDisplaySignin} setDisplaySignup={setDisplaySignup} />
+            <Signin display={displaySignin} setDisplaySignin={setDisplaySignin} setDisplaySignup={setDisplaySignup}/>
             <div className="overplay" onClick={() => hideSidebar()}></div>
             <button onClick={() => showSidebar()}>
                 <i class="fas fa-bars"></i>

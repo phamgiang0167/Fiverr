@@ -5,8 +5,16 @@ import { actChangeProfileGender, actChangeProfileBirthday, actChangeProfileName 
 import { memo } from 'react'
 import Swal from 'sweetalert2'
 import userManagement from 'apis/QuanLiNguoiDung'
-function ProfileBasic({ userLoggedIn }) {
+import { useHistory } from 'react-router'
+function ProfileBasic(props) {
+    const history = useHistory()
     const dispatch = useDispatch()
+    let { userLoggedIn } = props
+    let disabledButton = false
+    if(history.location.state && history.location.state.user){
+        userLoggedIn =history.location.state.user
+        disabledButton = true
+    } 
     return (
         <div className="profile__info-basic">
             <div
@@ -22,7 +30,7 @@ function ProfileBasic({ userLoggedIn }) {
                         if (FileReader && files && files.length) {
                             var fr = new FileReader();
                             fr.onload = function () {
-                                
+
                                 Swal.fire({
                                     title: 'Sweet!',
                                     text: 'Your image',
@@ -37,9 +45,9 @@ function ProfileBasic({ userLoggedIn }) {
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         document.getElementById('logo').src = fr.result;
-                                        
+
                                     }
-                                    userManagement.updateProfileImage(tgt.files[0] )
+                                    userManagement.updateProfileImage(tgt.files[0])
                                 })
                             }
                             fr.readAsDataURL(files[0]);
@@ -59,7 +67,7 @@ function ProfileBasic({ userLoggedIn }) {
                 className="info__name text-center py-3 font-weight-bold"
                 onClick={() => dispatch(actChangeProfileName(userLoggedIn))}
                 title="Click to change youe name"
-
+                disabled={disabledButton}
             >
                 {userLoggedIn.name}
             </button>
@@ -69,6 +77,7 @@ function ProfileBasic({ userLoggedIn }) {
                 <span className="font-weight-bold"
                     onClick={() => dispatch(actChangeProfileBirthday(userLoggedIn))}
                     title="Click to change the birthday"
+                    disabled={disabledButton}
                 >
                     {moment(userLoggedIn.birthday).format("DD-MM-YYYY")}
                 </span>
@@ -79,6 +88,7 @@ function ProfileBasic({ userLoggedIn }) {
                     className="font-weight-bold"
                     onClick={() => dispatch(actChangeProfileGender(userLoggedIn))}
                     title="Click to change the gender"
+                    disabled={disabledButton}
                 >
                     {userLoggedIn.gender === "true" ? "Male" : "Female"}
                 </span>

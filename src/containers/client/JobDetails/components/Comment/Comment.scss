@@ -1,0 +1,15 @@
+.comment{
+    width: 100%;
+    .comment__logo{
+        width: 40px;
+        height: 40px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+        border: 1px solid $color-gray-4
+    }
+    .comment__content{
+        width: 100%;
+    }
+}

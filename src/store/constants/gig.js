@@ -1,0 +1,5 @@
+export const CREATE_GIG = "CREATE_GIG"
+export const SET_GIG = "SET_GIG"
+export const EDIT_GIG = "EDIT_GIG"
+export const DELETE_GIG = "DELETE_GIG"
+export const COMPLETE_JOB = "COMPLETE_JOB"

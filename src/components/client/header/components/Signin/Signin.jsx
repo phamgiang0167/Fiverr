@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import Loading from 'components/client/Loading/Loading';
 import {actSignIn} from 'store/actions/user'
 function Signin(props) {
-    const { display, setDisplaySignin } = props
+    const { display, setDisplaySignin, setDisplaySignup } = props
     const { loading, userLoggedIn } = useSelector(state => state.validateUser)
     const [displayLoading, setDisplayLoading] = useState(false)
     const dispatch = useDispatch()
@@ -56,7 +56,10 @@ function Signin(props) {
                 </form>
                 <div className="signin__footer">
                     <span>Not a member yet?</span>
-                    <button> Join now</button>
+                    <button onClick={() => {
+                        setDisplaySignin(false)
+                        setDisplaySignup(true)
+                    }}> Join now</button>
                 </div>
             </div>
 

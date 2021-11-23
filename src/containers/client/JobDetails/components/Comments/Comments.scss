@@ -1,0 +1,27 @@
+.comments{
+    margin-top: $mg-4;
+    .comments__user{
+        display: flex;
+        align-content: flex-start;
+        .user__logo{
+            width: 40px;
+            height: 40px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border: 1px solid $color-gray-4;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .user__comment{
+            flex: 1;
+            textarea{
+                width: 100%;
+            }
+        }
+        
+    }
+    .content__list{
+        
+    }
+}

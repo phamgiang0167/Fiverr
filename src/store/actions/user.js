@@ -2,6 +2,7 @@ import userManagement from 'apis/QuanLiNguoiDung'
 import validateUser from 'apis/XacThucNguoiDung'
 import Swal from "sweetalert2"
 import flatpickr from "flatpickr"
+import { useDispatch } from 'react-redux'
 import {
     SIGNUP_SUCCESS,
     SIGNUP__REQUEST,
@@ -20,9 +21,8 @@ import { TOKEN_USER } from 'settings/apiConfig'
 import jobManagement from 'apis/QuanLiCongViec'
 import { USER } from 'settings/varConfig'
 
-const signupSuccess = (data) => ({
-    type: SIGNUP_SUCCESS,
-    payload: data
+const signupSuccess = () => ({
+    type: SIGNUP_SUCCESS
 })
 const signupRequest = () => ({
     type: SIGNUP__REQUEST,
@@ -47,6 +47,7 @@ const signinFail = (data) => ({
 })
 
 export const actSignIn = (values) => {
+    console.log(values)
     return dispatch => {
         dispatch(signinRequest())
         validateUser.signin(values)
@@ -82,7 +83,12 @@ export const actSignUp = (values) => {
                     skill: skill,
                     _id: _id
                 }
-                dispatch(signupSuccess(userInfo))
+                dispatch(signupSuccess())
+                Swal.fire({
+                    icon: "success",
+                    title: 'Success',
+                    text: 'Sign up success',
+                })
             })
             .catch(err => dispatch(signupFail(err.response.status)))
     }
@@ -271,6 +277,7 @@ export const actBookJob = (idJob) => {
                                     type: BOOK_JOB,
                                     payload: user.data
                                 })
+                                window.location.reload()
                             })
 
                         Swal.fire(

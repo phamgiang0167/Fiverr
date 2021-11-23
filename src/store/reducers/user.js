@@ -27,10 +27,8 @@ const validateUser = (state = initialState, { type, payload }) => {
         case SIGNUP__REQUEST:
             return {...state, loading: {msg: "Signing up", status: true}}
         case SIGNUP_SUCCESS:
-            console.log(payload)
-            localStorage.setItem(USER, JSON.stringify(payload))
             // window.location.reload()
-            return {...state, userLoggedIn: payload, loading: {msg: "Success", status: false}}
+            return {...state, loading: {msg: "Success", status: false}}
         case SIGNUP__FAIL:
             setTimeout(() => {
                 window.location.reload()
