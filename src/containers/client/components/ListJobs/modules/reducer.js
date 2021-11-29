@@ -1,4 +1,4 @@
-import { filter } from 'lodash'
+
 import {
     FETCH_ALL_JOBS,
     FILTER

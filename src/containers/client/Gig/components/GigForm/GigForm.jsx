@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { useState } from 'react';
 import { useFormik } from "formik"
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+
 import { useEffect } from 'react';
 import mainJobManagement from 'apis/QuanLiCongViecChinh';
 import subJobManagement from 'apis/QuanLiCongViecPhu';
@@ -46,7 +46,7 @@ function GigForm(props) {
     const formik = useFormik({
         initialValues: value,
         onSubmit: async values => {
-            if(displayForm.type == "create"){
+            if(displayForm.type === "create"){
 
                 dispatch(actCreateGig(values))
             }else{
@@ -117,26 +117,26 @@ function GigForm(props) {
                     <select name="proServices" id="proServices" required 
                         onChange={(e) => onChange("proServices",e.target.value)}>
                         <option value="" disabled selected>Pro services</option>
-                        <option value="true" selected={value.proServices == true ? true : false}>True</option>
-                        <option value="false" selected={value.proServices == true ? true : false}>False</option>
+                        <option value="true" selected={value.proServices === true ? true : false}>True</option>
+                        <option value="false" selected={value.proServices ===true ? true : false}>False</option>
                     </select>
                     <select name="localSellers" id="localSellers" required 
                         onChange={(e) => onChange("localSellers",e.target.value)}>
                         <option value="" disabled selected>Local sellers</option>
-                        <option value="true" selected={value.localSellers == true ? true : false}>True</option>
-                        <option value="false" selected={value.localSellers == true ? true : false}>False</option>
+                        <option value="true" selected={value.localSellers === true ? true : false}>True</option>
+                        <option value="false" selected={value.localSellers === true ? true : false}>False</option>
                     </select>
                     <select name="onlineSellers" id="onlineSellers" required 
                         onChange={(e) => onChange("onlineSellers",e.target.value)}>
                         <option value="" disabled selected>Online sellers</option>
-                        <option value="true" selected={value.onlineSellers == true ? true : false}>True</option>
-                        <option value="false" selected={value.onlineSellers == true ? true : false}>False</option>
+                        <option value="true" selected={value.onlineSellers === true ? true : false}>True</option>
+                        <option value="false" selected={value.onlineSellers === true ? true : false}>False</option>
                     </select>
                     <select name="deliveryTime" id="deliveryTime" required 
                         onChange={(e) => onChange("deliveryTime",e.target.value)}>
                         <option value="" disabled selected>Delivery time</option>
-                        <option value="true" selected={value.deliveryTime == true ? true : false}>True</option>
-                        <option value="false" selected={value.deliveryTime == true ? true : false}>False</option>
+                        <option value="true" selected={value.deliveryTime === true ? true : false}>True</option>
+                        <option value="false" selected={value.deliveryTime === true ? true : false}>False</option>
                     </select>
 
                     <select name="type" id="type" required

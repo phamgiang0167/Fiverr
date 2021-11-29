@@ -4,7 +4,7 @@ export default function Search() {
     const history = useHistory()
     const submitSearch = () => {
         let key = document.getElementById('search-field').value
-        if(key != ""){
+        if(key !== ""){
             history.push(`/listjob/by-name?name=${key}`)
 
         }
@@ -20,7 +20,7 @@ export default function Search() {
     const handleSearchJob = () => {
         let input = document.getElementById("search-field")
         let delBtn = document.getElementsByClassName("remove")[0]
-        if(input.value != ""){
+        if(input.value !== ""){
             delBtn.style.visibility = "visible" 
         }else{
             delBtn.style.visibility = "hidden" 

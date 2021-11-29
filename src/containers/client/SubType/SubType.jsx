@@ -10,7 +10,7 @@ export default function SubType() {
             .then((obj) => {
                 setSubType(obj.data)
             })
-    }, [])
+    }, [id])
 
     return (
         <div >

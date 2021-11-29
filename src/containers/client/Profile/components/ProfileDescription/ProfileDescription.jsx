@@ -1,33 +1,49 @@
 import React from 'react'
-import { memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { actAddNewBox, actDeleteItem } from "store/actions/user"
+import { useHistory } from 'react-router'
+import { useSelector } from 'react-redux'
 import Swal from "sweetalert2"
-function ProfileDescription({userLoggedIn}) {
+function ProfileDescription() {
+    const history = useHistory()
     const dispatch = useDispatch()
+    let { userLoggedIn } = useSelector(state => state.validateUser)
+    let user = JSON.parse(userLoggedIn)
+    let disabledButton = false
+    if (history.location.state && history.location.state.user) {
+        user = history.location.state.user
+        disabledButton = true
+    }
+    console.log(user)
+    if (!user) return (<></>)
     const renderSkills = () => {
-        return userLoggedIn.skill?.map((item, index) => {
+        return user.skill?.map((item, index) => {
             return (
                 <div className="item__box-item" key={index}>
                     <span>{item}</span>
-                    <i 
-                        class="far fa-trash-alt" 
-                        onClick={() => dispatch(actDeleteItem("skill", userLoggedIn, item))}
-                    ></i>
+                    {disabledButton ? 
+                    "" : 
+                    <i
+                        class="far fa-trash-alt"
+                        onClick={() => dispatch(actDeleteItem("skill", user, item))}
+                    ></i>}
                 </div>
             )
         })
     }
 
     const renderCertification = () => {
-        return userLoggedIn.certification?.map((item, index) => {
+        return user.certification?.map((item, index) => {
             return (
                 <div className="item__box-item" key={index}>
                     <span>{item}</span>
-                    <i 
+                    {disabledButton ? 
+                    "" : 
+                    <i
                         class="far fa-trash-alt"
-                        onClick={() => dispatch(actDeleteItem("certification", userLoggedIn, item))}
-                    ></i>
+                        onClick={() => dispatch(actDeleteItem("certification", user, item))}
+                    ></i>}
+
                 </div>
             )
         })
@@ -48,7 +64,7 @@ function ProfileDescription({userLoggedIn}) {
     const handleAddNewBox = (type, id) => {
         let value = document.getElementById(id).value
         if (value) {
-            dispatch(actAddNewBox(type, userLoggedIn, value))
+            dispatch(actAddNewBox(type, user, value))
         } else {
             Swal.fire(
                 'Error!',
@@ -65,9 +81,12 @@ function ProfileDescription({userLoggedIn}) {
                     <span>Skills</span>
                     <span
                         style={{ color: "blue" }}
-                        onClick={(e) => showAddNewBox('skillbox__addnew')}
+                        onClick={(e) => {
+                            if (!disabledButton)
+                                showAddNewBox('skillbox__addnew')
+                        }}
                     >
-                        Add new
+                        {disabledButton ? '' : 'Add new'}
                     </span>
                 </div>
 
@@ -97,9 +116,13 @@ function ProfileDescription({userLoggedIn}) {
                     <span>Certification</span>
                     <span
                         style={{ color: "blue" }}
-                        onClick={(e) => showAddNewBox('certificationbox__addnew')}
+                        onClick={(e) => {
+                            if (!disabledButton)
+                                showAddNewBox('certificationbox__addnew')
+                        }
+                        }
                     >
-                        Add new
+                        {disabledButton ? '' : 'Add new'}
                     </span>
                 </div>
 
@@ -127,4 +150,4 @@ function ProfileDescription({userLoggedIn}) {
     )
 }
 
-export default memo(ProfileDescription)
+export default ProfileDescription

@@ -1,8 +1,7 @@
-import jobManagement from 'apis/QuanLiCongViec';
+
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from "react-router-dom";
 import JobItem from '../jobItem/JobItem';
 import SearchTool from './components/SearchTool/SearchTool';
 import { actFetchAllJobs } from './modules/actions'
@@ -12,7 +11,7 @@ export default function ListJobs(props) {
     const { jobs } = useSelector(state => state.listJobsReducer)
     useEffect(() => {
         dispatch(actFetchAllJobs(name, id))
-    }, [])
+    }, [name, id])
     
     const renderListJob = () => {
         return jobs?.map(item => {

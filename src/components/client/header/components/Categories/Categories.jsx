@@ -9,7 +9,7 @@ export default function Categories(props) {
                 <div 
                     className="sub__item"
                     key={item._id}
-                    onClick={() => history.push(`subtype/${item._id}`)}
+                    onClick={() => history.push(`/subtype/${item._id}`)}
                 >
                     <span>{item.name}</span>
                 </div>

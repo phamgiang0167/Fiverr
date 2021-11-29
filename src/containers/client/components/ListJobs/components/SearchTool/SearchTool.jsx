@@ -27,7 +27,7 @@ function SearchTool() {
     const handleShowPriceInput = () => {
         console.log('a')
         let input = document.getElementsByClassName("price__input")[0]
-        if(input.style.display == "none"){
+        if(input.style.display === "none"){
             input.style.display = "block"
         }else{
             input.style.display = "none"

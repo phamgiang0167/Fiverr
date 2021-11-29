@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './styles/modal.css'
-import './styles/style4.css'
-import './styles/main.css'
+
 import { Fragment } from 'react'
 function Admin(props) {
     return (

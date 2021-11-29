@@ -2,7 +2,6 @@ import userManagement from 'apis/QuanLiNguoiDung'
 import validateUser from 'apis/XacThucNguoiDung'
 import Swal from "sweetalert2"
 import flatpickr from "flatpickr"
-import { useDispatch } from 'react-redux'
 import {
     SIGNUP_SUCCESS,
     SIGNUP__REQUEST,
@@ -19,7 +18,6 @@ import {
 } from '../constants/user'
 import { TOKEN_USER } from 'settings/apiConfig'
 import jobManagement from 'apis/QuanLiCongViec'
-import { USER } from 'settings/varConfig'
 
 const signupSuccess = () => ({
     type: SIGNUP_SUCCESS
@@ -63,26 +61,8 @@ export const actSignUp = (values) => {
         dispatch(signupRequest())
         validateUser.signup(values)
             .then((data) => {
-                const { birthday,
-                    bookingJob,
-                    certification,
-                    email,
-                    gender,
-                    name,
-                    phone,
-                    skill,
-                    _id } = data.data
-                const userInfo = {
-                    birthday: birthday,
-                    bookingJob: bookingJob,
-                    certification: certification,
-                    email: email,
-                    gender: gender,
-                    name: name,
-                    phone: phone,
-                    skill: skill,
-                    _id: _id
-                }
+                
+                
                 dispatch(signupSuccess())
                 Swal.fire({
                     icon: "success",
@@ -130,6 +110,7 @@ export const actChangeProfileName = (user) => {
     }
 }
 export const actChangeProfileGender = (user) => {
+    // console.log(user)
     return async dispatch => {
         const { value: gender } = await Swal.fire({
             title: 'Change your gender',
@@ -143,9 +124,10 @@ export const actChangeProfileGender = (user) => {
 
         })
         if (gender) {
-            let genderStatus = gender === "Male" ? 'true' : 'false'
+            let genderStatus = gender === "Male" ? true : false
             userManagement.updateProfileUser(user._id, { ...user, "gender": genderStatus })
                 .then((response) => {
+                    // console.log(response)
                     dispatch({
                         type: CHANGE_PROFILE_GENDER,
                         payload: { ...user, "gender": genderStatus }

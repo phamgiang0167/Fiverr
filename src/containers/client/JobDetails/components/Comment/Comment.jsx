@@ -19,10 +19,8 @@ export default function Comment({comment}) {
             .then((data) => {
                 setUser(data.data)
             })
-    }, [])
-    const renderComment = () => {
-        return comment.content
-    }
+    }, [comment.user])
+    
     
     if(!user) return (<></>)
     return (

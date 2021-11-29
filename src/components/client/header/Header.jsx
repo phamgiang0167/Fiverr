@@ -162,7 +162,7 @@ export default function Header() {
                     <div className="sidebar__item">
                         <button className="sidebar__signup">Join Fiverr</button>
                     </div>
-                    <div className="sidebar__item">Sign In</div>
+                    <div className="sidebar__item" onClick={() => setDisplaySignin(true)}>Sign In</div>
                 </>
 
             )

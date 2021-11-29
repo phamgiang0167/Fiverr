@@ -17,7 +17,7 @@ export default function Comments({ id }) {
                 setComments(data.data)
             })
             .catch(err => console.log(err))
-    }, [comment])
+    }, [comment, id])
     const renderCommnets = (list) => {
         const lstReverse = [...list].reverse()
         return lstReverse?.map((item, index) => {
@@ -25,7 +25,7 @@ export default function Comments({ id }) {
         })
     }
     const handleSubmitComment = (e) => {
-        if(e.code == "Enter"){
+        if(e.code === "Enter"){
             commentsManagement.postComment({content: e.target.value, job: id})
                 .then((data)=>{
                     setComments([...comments, data.data])

@@ -24,7 +24,7 @@ export default function GigItem({ data, displayForm, setDisplayForm }) {
             <hr />
             <div className="row">
                 <div className="col-sm-4">
-                    <div className="item__logo" style={{ backgroundImage: `url("/images/item_default.png")` }}>
+                    <div className="item__logo" style={{ backgroundImage: `url(${data.image ? data.image : "/images/item_default.png"})` }}>
 
                     </div>
                 </div>
