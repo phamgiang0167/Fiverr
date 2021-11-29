@@ -16,7 +16,7 @@ export default function JobItem(props) {
                 avatar: "/images/item_default.png"
             }))
 
-    }, [])
+    }, [data.userCreated])
 
     return (
         <div className="job__item-container">

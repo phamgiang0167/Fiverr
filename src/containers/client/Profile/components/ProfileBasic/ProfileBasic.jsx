@@ -2,11 +2,21 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import moment from "moment"
 import { actChangeProfileGender, actChangeProfileBirthday, actChangeProfileName } from "store/actions/user"
-import { memo } from 'react'
 import Swal from 'sweetalert2'
 import userManagement from 'apis/QuanLiNguoiDung'
-function ProfileBasic({ userLoggedIn }) {
+import { useHistory } from 'react-router'
+import { useSelector } from 'react-redux'
+function ProfileBasic() {
+    const history = useHistory()
     const dispatch = useDispatch()
+    let { userLoggedIn } = useSelector(state => state.validateUser)
+    let user = JSON.parse(userLoggedIn)
+    let disabledButton = false
+    if(history.location.state && history.location.state.user){
+        user = history.location.state.user
+        disabledButton = true
+    }
+    if (!user) return (<></>)
     return (
         <div className="profile__info-basic">
             <div
@@ -22,7 +32,7 @@ function ProfileBasic({ userLoggedIn }) {
                         if (FileReader && files && files.length) {
                             var fr = new FileReader();
                             fr.onload = function () {
-                                
+
                                 Swal.fire({
                                     title: 'Sweet!',
                                     text: 'Your image',
@@ -37,9 +47,9 @@ function ProfileBasic({ userLoggedIn }) {
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         document.getElementById('logo').src = fr.result;
-                                        
+
                                     }
-                                    userManagement.updateProfileImage(tgt.files[0] )
+                                    userManagement.updateProfileImage(tgt.files[0])
                                 })
                             }
                             fr.readAsDataURL(files[0]);
@@ -57,30 +67,38 @@ function ProfileBasic({ userLoggedIn }) {
             </div>
             <button
                 className="info__name text-center py-3 font-weight-bold"
-                onClick={() => dispatch(actChangeProfileName(userLoggedIn))}
+                onClick={() => {
+                    if(!disabledButton)
+                        dispatch(actChangeProfileName(user))
+                }}
                 title="Click to change youe name"
-
             >
-                {userLoggedIn.name}
+                {user.name}
             </button>
             <hr />
             <div className="info__item d-flex align-items-center justify-content-between">
                 <span><i class="fas fa-birthday-cake"></i>Birth day</span>
                 <span className="font-weight-bold"
-                    onClick={() => dispatch(actChangeProfileBirthday(userLoggedIn))}
+                    onClick={() => {
+                        if(!disabledButton)
+                            dispatch(actChangeProfileBirthday(user))
+                    }}
                     title="Click to change the birthday"
                 >
-                    {moment(userLoggedIn.birthday).format("DD-MM-YYYY")}
+                    {moment(user.birthday).format("DD-MM-YYYY")}
                 </span>
             </div>
             <div className="info__item d-flex align-items-center justify-content-between">
                 <span><i class="fas fa-venus-mars"></i>Gender</span>
                 <span
                     className="font-weight-bold"
-                    onClick={() => dispatch(actChangeProfileGender(userLoggedIn))}
+                    onClick={() => {
+                        if(!disabledButton)
+                            dispatch(actChangeProfileGender(user))
+                    }}
                     title="Click to change the gender"
                 >
-                    {userLoggedIn.gender === "true" ? "Male" : "Female"}
+                    {user.gender === true ? "Male" : "Female"}
                 </span>
             </div>
             <div className="info__item d-flex align-items-center justify-content-between">
@@ -90,4 +108,4 @@ function ProfileBasic({ userLoggedIn }) {
         </div>
     )
 }
-export default memo(ProfileBasic)
+export default ProfileBasic

@@ -18,11 +18,9 @@ import {
 } from '../constants/user'
 import { TOKEN_USER } from 'settings/apiConfig'
 import jobManagement from 'apis/QuanLiCongViec'
-import { USER } from 'settings/varConfig'
 
-const signupSuccess = (data) => ({
-    type: SIGNUP_SUCCESS,
-    payload: data
+const signupSuccess = () => ({
+    type: SIGNUP_SUCCESS
 })
 const signupRequest = () => ({
     type: SIGNUP__REQUEST,
@@ -47,6 +45,7 @@ const signinFail = (data) => ({
 })
 
 export const actSignIn = (values) => {
+    console.log(values)
     return dispatch => {
         dispatch(signinRequest())
         validateUser.signin(values)
@@ -62,27 +61,14 @@ export const actSignUp = (values) => {
         dispatch(signupRequest())
         validateUser.signup(values)
             .then((data) => {
-                const { birthday,
-                    bookingJob,
-                    certification,
-                    email,
-                    gender,
-                    name,
-                    phone,
-                    skill,
-                    _id } = data.data
-                const userInfo = {
-                    birthday: birthday,
-                    bookingJob: bookingJob,
-                    certification: certification,
-                    email: email,
-                    gender: gender,
-                    name: name,
-                    phone: phone,
-                    skill: skill,
-                    _id: _id
-                }
-                dispatch(signupSuccess(userInfo))
+                
+                
+                dispatch(signupSuccess())
+                Swal.fire({
+                    icon: "success",
+                    title: 'Success',
+                    text: 'Sign up success',
+                })
             })
             .catch(err => dispatch(signupFail(err.response.status)))
     }
@@ -124,6 +110,7 @@ export const actChangeProfileName = (user) => {
     }
 }
 export const actChangeProfileGender = (user) => {
+    // console.log(user)
     return async dispatch => {
         const { value: gender } = await Swal.fire({
             title: 'Change your gender',
@@ -137,9 +124,10 @@ export const actChangeProfileGender = (user) => {
 
         })
         if (gender) {
-            let genderStatus = gender === "Male" ? 'true' : 'false'
+            let genderStatus = gender === "Male" ? true : false
             userManagement.updateProfileUser(user._id, { ...user, "gender": genderStatus })
                 .then((response) => {
+                    // console.log(response)
                     dispatch({
                         type: CHANGE_PROFILE_GENDER,
                         payload: { ...user, "gender": genderStatus }
@@ -271,6 +259,7 @@ export const actBookJob = (idJob) => {
                                     type: BOOK_JOB,
                                     payload: user.data
                                 })
+                                window.location.reload()
                             })
 
                         Swal.fire(

@@ -1,5 +1,4 @@
 import jobManagement from 'apis/QuanLiCongViec'
-import subJobManagement from 'apis/QuanLiCongViecPhu'
 import {
     FETCH_ALL_JOBS,
     FILTER

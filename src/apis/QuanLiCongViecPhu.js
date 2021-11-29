@@ -6,8 +6,7 @@ const subJobManagement = {
     },
     fetchDetailSubJob(id){
         return callApi('api/sub-type-jobs/' + id)
-    }
-    
+    },
 };
 
 export default subJobManagement;

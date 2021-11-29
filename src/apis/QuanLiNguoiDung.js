@@ -28,6 +28,7 @@ const userManagement = {
 
     },
     getUsetDetails(id) {
+        
         return callApi(`api/users/${id}`)
     }
 };

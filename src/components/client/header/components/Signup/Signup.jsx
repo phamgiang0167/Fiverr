@@ -1,15 +1,15 @@
 import React from 'react'
 import { memo } from 'react'
-import { DatePicker, Space } from 'antd';
+import { DatePicker} from 'antd';
 import { useState } from 'react';
 import { useFormik } from "formik"
 import { useDispatch } from 'react-redux';
 import {actSignUp} from 'store/actions/user'
 import { useSelector } from 'react-redux';
 import Loading from 'components/client/Loading/Loading';
-import { USER } from 'settings/varConfig';
+
 function Signup(props) {
-    const { display, setDisplaySignup } = props
+    const { display, setDisplaySignup, setDisplaySignin } = props
     const [birthday, setBirthday] = useState("")
     const {loading, userLoggedIn} = useSelector(state => state.validateUser)
     const [displayLoading, setDisplayLoading] = useState(false)
@@ -81,7 +81,10 @@ function Signup(props) {
                 </form>
                 <div className="signup__footer">
                     <span>Already a member?</span>
-                    <button> Sign In</button>
+                    <button onClick={() => {
+                        setDisplaySignin(true)
+                        setDisplaySignup(false)
+                    }}>Sign up</button>
                 </div>
             </div>
             
