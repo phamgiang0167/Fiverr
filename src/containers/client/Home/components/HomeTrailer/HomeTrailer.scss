@@ -37,18 +37,18 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: contain;
+                position: relative;
                 .trailer__play{
-                    content: "";
                     display: inline-block;
                     background-size: 80px;
                     width: 80px;
                     height: 80px;
                     position: absolute;
                     z-index: 0;
-                    top: 50%;
-                    left: 50%;
-                    -webkit-transform: translate(-50%,-50%);
-                    transform: translate(-50%,-50%);
+                    top: 0;
+                    left: calc(50% - 40px);
+                    top: calc(50% - 40px);
+                    margin: auto auto;
                     background: url(https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/desktop-play-button.c1196d6.png);
                     background-position: center;
                     background-repeat: no-repeat;

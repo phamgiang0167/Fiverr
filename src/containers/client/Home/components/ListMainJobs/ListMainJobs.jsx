@@ -16,9 +16,9 @@ function ListMainJobs() {
     const renderListMainJob = () => {
         return listMainJob?.map((item, index) => {
             return (
-                <div className="listMainJob__item" onclick={() => history.push(`/mainjob/${item._id}`)}>
+                <div className="listMainJob__item" onclick={() => history.push(`/mainjob/${item._id}`)} key={item._id}>
                     <div className="item__logo">
-                        <div className="logo" style={{backgroundImage: "url(./images/item_default.png)"}}>
+                        <div className="logo" style={{backgroundImage: `url(./images/i${index + 1}.png)`}}>
 
                         </div>
                         <div className="item__border-bottom">

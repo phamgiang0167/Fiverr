@@ -80,7 +80,7 @@ export default function Header() {
         return list?.map((item, index) => {
             return (
                 <li key={item._id} >
-                    <a href={`/subtype/${item._id}`}>{item.name}</a>
+                    <a onClick={()=>history.push(`/subtype/${item._id}`)}>{item.name}</a>
                 </li>
             )
         })
@@ -89,7 +89,7 @@ export default function Header() {
         return typeJobs?.map((item, index) => {
             return (
                 <li key={item._id} >
-                    <a href={`/type/${item._id}`}>{item.name}</a>
+                    <a onClick={() => history.push(`/type/${item._id}`)}>{item.name}</a>
                     <div className="sub__jobs" >
                         <ul>
                             {renderSubTypeJobs(item.subTypeJobs)}
@@ -145,7 +145,7 @@ export default function Header() {
                             onClick={() => {
                                 localStorage.removeItem(USER)
                                 localStorage.removeItem(TOKEN_USER)
-                                window.location.reload()
+                                history.push('/')
                             }}
                         >
                             Sign out
@@ -186,7 +186,7 @@ export default function Header() {
             <div className="header__sidebar">
                 {renderUserOptionsSidebar()}
                 <Tabs />
-                <Categories typeJobs={typeJobs} />
+                <Categories typeJobs={typeJobs} history={history} />
                 <div className="sidebar__item">Fiverr Pro</div>
                 <div className="sidebar__item">Fiverr Business</div>
                 <div className="sidebar__item">Home</div>
