@@ -1,15 +1,15 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 export default function Categories(props) {
-    const history = useHistory()
-    const {typeJobs} = props
+    
+    const {typeJobs, history} = props
     const renderSubTypes = (list) => {
         return list?.map((item, index) => {
             return (
                 <div 
                     className="sub__item"
                     key={item._id}
-                    onClick={() => history.push(`/subtype/${item._id}`)}
+                    onClick={() => history.replace(`/subtype/${item._id}`)}
                 >
                     <span>{item.name}</span>
                 </div>

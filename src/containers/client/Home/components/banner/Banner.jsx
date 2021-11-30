@@ -29,7 +29,7 @@ export default function Banner() {
     }
     
     return (
-        <div className="banner" style={{ backgroundImage: "url(./images/banner-1.png)" }}>
+        <div className="banner">
             <div className="banner__left">
                 <div className="banner__slogan">
                     Find the perfet <span>freelance</span> service for your business

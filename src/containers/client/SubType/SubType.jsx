@@ -13,7 +13,7 @@ export default function SubType() {
     }, [id])
 
     return (
-        <div >
+        <div style={{padding: "20px 0"}}>
             <div class="result" >{subType.name}</div>
             <ListJobs id={id} />
         </div>

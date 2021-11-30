@@ -24,13 +24,14 @@ export default function Gig() {
     const dispatch = useDispatch()
     useEffect(() => {
         jobManagement.fechJobs()
-            .then((job) => {
-                const myGig = job.data?.filter((item) => {
-                    return item.userCreated === JSON.parse(localStorage.getItem(USER))._id
-                })
-                dispatch(actSetGig(myGig))
+        .then((job) => {
+            const myGig = job.data?.filter((item) => {
+                return item.userCreated === JSON.parse(localStorage.getItem(USER))._id
             })
+            dispatch(actSetGig(myGig))
+        })
     }, [])
+    
     if (!localStorage.getItem(USER)) {
         return <Redirect to="/" />
     }
