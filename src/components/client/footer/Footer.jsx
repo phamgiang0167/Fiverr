@@ -19,40 +19,18 @@ export default function Footer() {
                     {/* Grid column */}
                     <div className="col-md-3 mb-md-0 mb-3">
                         {/* Links */}
-                        <h5 className="text-uppercase">Links</h5>
+                        
                         <ul className="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     {/* Grid column */}
                     {/* Grid column */}
                     <div className="col-md-3 mb-md-0 mb-3">
                         {/* Links */}
-                        <h5 className="text-uppercase">Links</h5>
+                        
                         <ul className="list-unstyled">
-                            <li>
-                                <a href="#!">Link 1</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                                <a href="#!">Link 4</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     {/* Grid column */}

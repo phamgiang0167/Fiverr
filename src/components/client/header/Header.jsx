@@ -119,7 +119,7 @@ export default function Header() {
                 <div className="header__personal">
                     <label 
                         className="personal__logo" 
-                        style={{ backgroundImage: "URL(/images/item_default.png)" }}
+                        style={{ backgroundImage: `URL(${userInfo.avatar ? userInfo.avatar : "images/item_default.png"})` }}
                         for="logo__checkbox"
                     >
                     </label>
@@ -140,6 +140,16 @@ export default function Header() {
                             }}
                         >
                             My gig
+                        </div>
+                        <div className="options__item" 
+                            onClick={() => {
+                                history.push({
+                                    pathname: '/history',
+                                    state: { user: userInfo}
+                                })
+                            }}
+                        >
+                            History
                         </div>
                         <div className="options__item" 
                             onClick={() => {

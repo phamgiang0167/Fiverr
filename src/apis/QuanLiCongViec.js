@@ -1,5 +1,7 @@
 import {callApi, callApiUser} from 'utils/callApi';
-
+import axios from 'axios';
+import { TOKEN, TOKEN_BY_CLASS, TOKEN_USER } from 'settings/apiConfig';
+import { USER } from 'settings/varConfig';
 const jobManagement = {
     fechJobByName(name) {
         return callApi(`api/jobs/by-name?name=${name}`);
@@ -29,6 +31,23 @@ const jobManagement = {
     },
     completeJob(id){
         return callApiUser(`api/jobs/done/${id}`, "PATCH")
+    },
+    changeImage(file, id){
+        console.log(file)
+        let myData = new FormData();
+        myData.append('job', file);
+
+        
+        return axios({
+            url: 'https://fiverr.cybersoft.edu.vn/api/jobs/upload-image/' + id,
+            method: "POST",
+            data: myData,
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'token': TOKEN,
+                'tokenByClass': TOKEN_BY_CLASS
+            }
+        })
     }
     
 };

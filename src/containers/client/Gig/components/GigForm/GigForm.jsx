@@ -82,7 +82,7 @@ function GigForm(props) {
         setValue({...value, [type]: newValue})
         formik.setFieldValue(type, newValue)
     }
-    
+    console.log(value)
     if (!displayForm.display) return (<></>)
     return (
         <div className="GigForm__container">
@@ -117,26 +117,26 @@ function GigForm(props) {
                     <select name="proServices" id="proServices" required 
                         onChange={(e) => onChange("proServices",e.target.value)}>
                         <option value="" disabled selected>Pro services</option>
-                        <option value="true" selected={value.proServices === true ? true : false}>True</option>
-                        <option value="false" selected={value.proServices ===true ? true : false}>False</option>
+                        <option value="true" selected={value.proServices ? true : false}>True</option>
+                        <option value="false" selected={value.proServices ? false : true}>False</option>
                     </select>
                     <select name="localSellers" id="localSellers" required 
                         onChange={(e) => onChange("localSellers",e.target.value)}>
                         <option value="" disabled selected>Local sellers</option>
-                        <option value="true" selected={value.localSellers === true ? true : false}>True</option>
-                        <option value="false" selected={value.localSellers === true ? true : false}>False</option>
+                        <option value="true" selected={value.localSellers ? true : false}>True</option>
+                        <option value="false" selected={value.localSellers ? false : true}>False</option>
                     </select>
                     <select name="onlineSellers" id="onlineSellers" required 
                         onChange={(e) => onChange("onlineSellers",e.target.value)}>
                         <option value="" disabled selected>Online sellers</option>
-                        <option value="true" selected={value.onlineSellers === true ? true : false}>True</option>
-                        <option value="false" selected={value.onlineSellers === true ? true : false}>False</option>
+                        <option value="true" selected={value.onlineSellers ? true : false}>True</option>
+                        <option value="false" selected={value.onlineSellers ? false : true}>False</option>
                     </select>
                     <select name="deliveryTime" id="deliveryTime" required 
                         onChange={(e) => onChange("deliveryTime",e.target.value)}>
                         <option value="" disabled selected>Delivery time</option>
-                        <option value="true" selected={value.deliveryTime === true ? true : false}>True</option>
-                        <option value="false" selected={value.deliveryTime === true ? true : false}>False</option>
+                        <option value="true" selected={value.deliveryTime ? true : false}>True</option>
+                        <option value="false" selected={value.deliveryTime ? false : true}>False</option>
                     </select>
 
                     <select name="type" id="type" required

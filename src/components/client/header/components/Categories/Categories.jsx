@@ -24,7 +24,7 @@ export default function Categories(props) {
                     className="category"
                 >
                     <div className="category__title">
-                        <span onClick={() => history.push(`type/${item._id}`)}>{item.name}</span>
+                        <span onClick={() => history.replace(`/type/${item._id}`)}>{item.name}</span>
                         <i class="fas fa-chevron-down" data-toggle="collapse" href="#sub__category"></i>
                     </div>
                     <div className="sub__category collapse" id="sub__category">

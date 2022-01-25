@@ -61,7 +61,7 @@ export const actSignUp = (values) => {
         dispatch(signupRequest())
         validateUser.signup(values)
             .then((data) => {
-                
+                console.log(data)
                 
                 dispatch(signupSuccess())
                 Swal.fire({

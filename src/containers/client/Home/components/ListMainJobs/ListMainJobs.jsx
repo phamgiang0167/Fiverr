@@ -12,13 +12,17 @@ function ListMainJobs() {
             })
             .catch(err => console.log(err))
     }, [])
-    
+    console.log(listMainJob)
     const renderListMainJob = () => {
         return listMainJob?.map((item, index) => {
             return (
-                <div className="listMainJob__item" onclick={() => history.push(`/mainjob/${item._id}`)} key={item._id}>
+                <div className="listMainJob__item" key={item._id}>
                     <div className="item__logo">
-                        <div className="logo" style={{backgroundImage: `url(./images/i${index + 1}.png)`}}>
+                        <div 
+                            className="logo" 
+                            style={{backgroundImage: `url(./images/i${index + 1}.png)`}}
+                            onClick={() => history.push(`/type/${item._id}`)}
+                        >
 
                         </div>
                         <div className="item__border-bottom">

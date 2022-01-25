@@ -11,6 +11,7 @@ import Profile from 'containers/client/Profile/Profile'
 import Gig from 'containers/client/Gig/Gig'
 //admin routes
 import Admin from '../containers/admin/Admin'
+import GigHistory from 'containers/client/GigHistory/GigHistory'
 export const clientRoutes = [
     {
         path: '/',
@@ -45,6 +46,11 @@ export const clientRoutes = [
     {
         path: '/mygig',
         component: Gig,
+        exact: true
+    },
+    {
+        path: '/history',
+        component: GigHistory,
         exact: true
     }
 ];

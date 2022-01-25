@@ -72,12 +72,32 @@ export default function JobDetails() {
                                 <span className="">Package</span>
                                 <span>{job.price} $</span>
                             </div>
+                            <div className="d-flex justify-content-between px-4 py-4 font-weight-bold">
+                                <span className="">Pro services</span>
+                                <span>{job.proServices ? "Yes" : "No" }</span>
+                                
+                            </div>
+                            <div className="d-flex justify-content-between px-4 py-4 font-weight-bold">
+                                <span className="">Local sellers</span>
+                                <span>{job.localSellers ? "Yes" : "No" }</span>
+                                
+                            </div>
+                            <div className="d-flex justify-content-between px-4 py-4 font-weight-bold">
+                                <span className="">Online Sellers</span>
+                                <span>{job.onlineSellers ? "Yes" : "No" }</span>
+                                
+                            </div>
+                            <div className="d-flex justify-content-between px-4 py-4 font-weight-bold">
+                                <span className="">Delivery</span>
+                                <span>{job.deliveryTime ? "Yes" : "No" }</span>
+                                
+                            </div>
                             <div className="pb-4 px-4 text-center">
                                 <button 
                                     className={
                                         `
                                             btn booking 
-                                            ${job.usersBooking !== (undefined || null) && JSON.parse(localStorage.getItem(USER))?._id !== user._id ? "active" : "disabled"}
+                                            ${job.usersBooking == (undefined || null) && JSON.parse(localStorage.getItem(USER))?._id !== user._id ? "active" : "disabled"}
                                         `
                                     }
                                     onClick={() => dispatch(actBookJob(job._id))}

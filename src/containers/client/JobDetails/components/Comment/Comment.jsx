@@ -35,7 +35,7 @@ export default function Comment({comment}) {
                     
                 </div>
             </div>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae nobis labore nesciunt illum dolorum earum, nostrum possimus sint inventore. Corrupti asperiores quas, accusantium nihil illo aperiam numquam nisi deleniti. Qui?
+            
             <div className="comment__content">
                 {comment.content}
             </div>

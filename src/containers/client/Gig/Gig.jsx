@@ -45,7 +45,7 @@ export default function Gig() {
     }
 
     return (
-        <div className="gig">
+        <div className="gig" style={{minHeight: "100vh"}}>
             <GigForm displayForm={displayForm} setDisplayForm={setDisplayForm} />
             <div className="row">
                 <div className="col-sm-2 col-md-3"></div>

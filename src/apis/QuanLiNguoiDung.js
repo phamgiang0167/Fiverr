@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { TOKEN_BY_CLASS, TOKEN_USER } from 'settings/apiConfig';
+import { USER } from 'settings/varConfig';
 import { callApi, callApiUser } from 'utils/callApi';
 
 const userManagement = {
@@ -8,11 +9,12 @@ const userManagement = {
         return callApi(`api/users/${_id}`, "PUT", values);
     },
     updateProfileImage(file) {
+        console.log(file)
         let myData = new FormData();
         myData.append('avatar', file);
 
         
-        return axios({
+        axios({
             url: 'https://fiverr.cybersoft.edu.vn/api/users/upload-avatar',
             method: "POST",
             data: myData,
@@ -22,6 +24,10 @@ const userManagement = {
                 'tokenByClass': TOKEN_BY_CLASS
             }
         })
+            .then((data) => {
+                localStorage.setItem(USER, JSON.stringify(data.data))
+                window.location.reload()
+            })
        
 
 
@@ -30,6 +36,9 @@ const userManagement = {
     getUsetDetails(id) {
         
         return callApi(`api/users/${id}`)
+    },
+    getListGigBooked(id){
+        return callApiUser('api/jobs/by-user')
     }
 };
 
